@@ -36013,6 +36013,30 @@
 			]
 		}
 	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "13c52fcc-de83-426b-bd0b-27230c58ae3c",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "230b9d65-d280-4eed-87b4-aa906451f0b5",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
 	"variable": [
 		{
 			"key": "disrep-token",
@@ -36025,6 +36049,11 @@
 		{
 			"key": "pmi-token",
 			"value": ""
+		},
+		{
+			"key": "baseUrl",
+			"value": "https://appmodule.delightfulgrass-0dcdf3e6.brazilsouth.azurecontainerapps.io",
+			"type": "string"
 		}
 	]
 }
