@@ -1,9 +1,0 @@
-{
-  "docfile": "string",
-  "docname": "string",
-  "doctype": "string",
-  "owner_id": "string",
-  "ownertype": "string",
-  "id": 1243,
-  "endate": "1988-03-29T05:13:47.706Z"
-}

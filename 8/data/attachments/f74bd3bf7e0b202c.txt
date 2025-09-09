@@ -1,8 +1,0 @@
-{
-  "username": "string",
-  "role": "string",
-  "firstname": "string",
-  "lastname": "string",
-  "vendor_id": "string",
-  "accountstatus": false
-}

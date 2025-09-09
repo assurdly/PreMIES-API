@@ -1,8 +1,0 @@
-{
-  "id": 4582,
-  "batch": "string",
-  "meterphase": "string",
-  "vendor_id": "stri",
-  "amount": 6372.109846065507,
-  "endate": "1963-09-17T11:41:36.141Z"
-}
