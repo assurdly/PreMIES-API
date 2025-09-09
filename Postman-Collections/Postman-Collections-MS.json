@@ -12394,7 +12394,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "6991a27e-02ab-44b6-a3d2-cdb7cb3af598",
+				"id": "e1dae993-d1d9-4be5-b457-9a7309a8be81",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -12405,7 +12405,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "a7476d2f-5afb-4e06-ba9e-d94edd83a2f9",
+				"id": "558cbd79-20e0-4e92-b805-b78b80d9feb4",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -12418,6 +12418,11 @@
 		{
 			"key": "ms-token",
 			"value": ""
+		},
+		{
+			"key": "baseUrl",
+			"value": "https://appmodule.delightfulgrass-0dcdf3e6.brazilsouth.azurecontainerapps.io",
+			"type": "string"
 		}
 	]
 }
