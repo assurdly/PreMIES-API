@@ -2649,7 +2649,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "40ba5412-23f1-47ce-83cb-a509edb042e8",
+				"id": "b380888c-131c-4157-8b79-9f5511680214",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -2660,7 +2660,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "afbb3e1f-2c12-4154-b2d2-a44aaf3ea68d",
+				"id": "327992ae-f84c-4ea3-8106-653f856a2e08",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -2677,6 +2677,11 @@
 		{
 			"key": "mengr-token",
 			"value": ""
+		},
+		{
+			"key": "baseUrl",
+			"value": "https://appmodule.delightfulgrass-0dcdf3e6.brazilsouth.azurecontainerapps.io",
+			"type": "string"
 		}
 	]
 }
