@@ -1,0 +1,20 @@
+{
+    "accept": "application/json, text/plain, */*",
+    "accept-language": "en-US,en;q=0.9",
+    "authorization": "Bearer CfDJ8INFySu2EHZOtaHu84e5WgJ9l31bQb8V535YV-Vo9m_C5YN0vrBQKJkiZuHvwMoi90jUDDwmpFR6bKq5piWkw-j_nuSiP3r2H-JCW01karaX2LTitYFjZ4ws5rLau6eC3p5fJ5qgDYPwOmuXp_CWXJqeJKW6QBQZUkeIJ19-SoKVZEjv_e_ynWXN4bywqA8_ysmopkpvrz_KBIqVirNOHweleDfqdOVkxbslLMlVUGA5kjlPIdW2D0TydsL_xwqRerVudTcUsH_yzCUyO49YsLh_dDjMWvfYZDwjRk47m6OQZQbXrMy6UUwF6A4gxNTlX3Dwuwu4gyGHKdK0NSNxQ6_9qQfwYNFsJRvzNJEwg7918GFNVDe63-eF_NvJUDl55NHUiYb0qqWYZSpi8zsI4vBY3XE0O2nreiMoJshBI6lI8fWO2Jiq_56ZE03rRPH9i_8oXbBG0HgllMVcFdYpMACBl1gZ76xj02OEznyNSHsR087kwOYYpD5-L_vAJFMhBjzAC2HcgjaCkEJnWva6IJ047yFEwB7gpc-M5RqQQC6dE2G-A9Qy17qxaZ9AxVOvqA",
+    "origin": "https://primes.omniswift.com",
+    "priority": "u=1, i",
+    "referer": "https://primes.omniswift.com/",
+    "sec-ch-ua": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"macOS\"",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "cross-site",
+    "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+    "Cache-Control": "no-cache",
+    "Postman-Token": "dbce8098-2ba4-41bf-ba82-844aa6c27b89",
+    "Host": "appmodule.delightfulgrass-0dcdf3e6.brazilsouth.azurecontainerapps.io",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Connection": "keep-alive"
+}

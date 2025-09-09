@@ -1,0 +1,1 @@
+{"type":"https://tools.ietf.org/html/rfc9110#section-15.5.1","title":"One or more validation errors occurred.","status":400,"errors":{"password":["The password field is required."],"username":["The username field is required."]},"traceId":"00-d03d51e5425d19644c7cd1bf3bd5fbc0-9155d8fb696b3929-01"}
