@@ -1,0 +1,1867 @@
+{
+	"info": {
+		"_postman_id": "ae26b561-b3bb-4109-82f3-cf6adf329419",
+		"name": "METER INSTALLER",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e8d36069-70cd-4ce0-9a9f-6d2c835560ec",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "084f9fb8-2e64-4d98-91eb-40b0f4d8a410",
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"// Validate the response code and status\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.equal(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response code and status are valid\", function () {\r",
+									"    pm.expect(jsonData.responsecode).to.equal(200);\r",
+									"    pm.expect(jsonData.responsStatus).to.be.true;\r",
+									"});\r",
+									"\r",
+									"// Validate the response body structure\r",
+									"pm.test(\"Response body contains expected properties\", function () {\r",
+									"    pm.expect(jsonData).to.have.all.keys('cc', 'responsecode', 'data', 'responsemessage', 'patterns', 'responsStatus', 'totalpage', 'currentpage');\r",
+									"});\r",
+									"\r",
+									"// Validate the data object structure\r",
+									"pm.test(\"Data object contains expected properties\", function () {\r",
+									"    const data = jsonData.data;\r",
+									"    pm.expect(data).to.have.all.keys('id', 'fullname', 'firstname', 'middlename', 'lastname', 'year_experi', 'install_class', 'disco', 'state', 'company', 'emailaddress', 'country', 'profile_type', 'phone_number', 'liicen_number', 'jobcount', 'jobdone', 'installer_number', 'vendor', 'installer_status', 'declined_reason', 'address', 'zipcode', 'bvn', 'roles', 'lga', 'passcode', 'endate');\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "42d0d7d4-6316-4a7d-9905-3d9647d0bcd8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"password\": \"Pa$$word123\",\n  \"username\": \"webmasters2030@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/authentication/allusers"
+					},
+					"response": [
+						{
+							"id": "5e62d674-f29b-4a84-9683-2521f1a9e717",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"password\": \"string\",\n  \"username\": \"string\",\n  \"passcode\": \"string\",\n  \"usertype\": \"string\",\n  \"devicetype\": \"string\",\n  \"ipaddress\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/authentication/allusers"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"cc\": 2222,\n  \"responsecode\": 2883,\n  \"data\": {\n    \"nullable\": true\n  },\n  \"responsemessage\": \"string\",\n  \"patterns\": \"string\",\n  \"responsStatus\": false,\n  \"totalpage\": 1761,\n  \"currentpage\": 2297\n}"
+						}
+					]
+				},
+				{
+					"name": "login-Invalid Username",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e8d36069-70cd-4ce0-9a9f-6d2c835560ec",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "084f9fb8-2e64-4d98-91eb-40b0f4d8a410",
+								"exec": [
+									"const response = pm.response.json();\r",
+									"\r",
+									"// Validate the response structure\r",
+									"pm.test(\"Response structure is valid\", function () {\r",
+									"    pm.expect(response).to.be.an('object');\r",
+									"    pm.expect(response).to.have.all.keys('cc', 'responsecode', 'data', 'responsemessage', 'patterns', 'responsStatus', 'totalpage', 'currentpage');\r",
+									"});\r",
+									"\r",
+									"// Validate individual fields\r",
+									"pm.test(\"Response fields are valid\", function () {\r",
+									"    pm.expect(response.cc).to.be.a('number');\r",
+									"    pm.expect(response.responsecode).to.equal(400);\r",
+									"    pm.expect(response.data).to.be.null;\r",
+									"    pm.expect(response.responsemessage).to.be.a('string').that.is.not.empty;\r",
+									"    pm.expect(response.patterns).to.be.a('string');\r",
+									"    pm.expect(response.responsStatus).to.be.a('boolean');\r",
+									"    pm.expect(response.totalpage).to.be.a('number');\r",
+									"    pm.expect(response.currentpage).to.be.a('number');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "3c4ebe9b-7c1c-4d85-8d48-dacdd2bebf91",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"password\": \"Pa$$word123\",\n  \"username\": \"ebmasters2030@gmail.com\",\n  \"passcode\": \"string\",\n  \"usertype\": \"string\",\n  \"devicetype\": \"string\",\n  \"ipaddress\": \"string\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/authentication/allusers"
+					},
+					"response": []
+				},
+				{
+					"name": "login-Invalid Password",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e8d36069-70cd-4ce0-9a9f-6d2c835560ec",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "084f9fb8-2e64-4d98-91eb-40b0f4d8a410",
+								"exec": [
+									"const response = pm.response.json();\r",
+									"\r",
+									"// Validate the response structure\r",
+									"pm.test(\"Response structure is valid\", function () {\r",
+									"    pm.expect(response).to.be.an('object');\r",
+									"    pm.expect(response).to.have.all.keys('cc', 'responsecode', 'data', 'responsemessage', 'patterns', 'responsStatus', 'totalpage', 'currentpage');\r",
+									"});\r",
+									"\r",
+									"// Validate individual fields\r",
+									"pm.test(\"Response fields are valid\", function () {\r",
+									"    pm.expect(response.cc).to.be.a('number');\r",
+									"    pm.expect(response.responsecode).to.equal(400);\r",
+									"    pm.expect(response.data).to.be.null;\r",
+									"    pm.expect(response.responsemessage).to.be.a('string').that.is.not.empty;\r",
+									"    pm.expect(response.patterns).to.be.a('string');\r",
+									"    pm.expect(response.responsStatus).to.be.a('boolean');\r",
+									"    pm.expect(response.totalpage).to.be.a('number');\r",
+									"    pm.expect(response.currentpage).to.be.a('number');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "01796ab8-9369-4f21-9492-11749d5fab35",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"password\": \"Pa$$word1234\",\n  \"username\": \"webmasters2030@gmail.com\",\n  \"passcode\": \"string\",\n  \"usertype\": \"string\",\n  \"devicetype\": \"string\",\n  \"ipaddress\": \"string\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/authentication/allusers"
+					},
+					"response": []
+				}
+			],
+			"id": "053cafad-3e9a-4c99-a53f-7c07341021d3"
+		},
+		{
+			"name": "Authorize",
+			"item": [
+				{
+					"name": "authorize",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "186bbd5e-00c3-4d03-b419-4b9824f7b363",
+								"exec": [
+									"const responseData = pm.response.json();\r",
+									"pm.collectionVariables.set(\"minst-token\", responseData[\"accessToken\"]);\r",
+									"\r",
+									"\r",
+									"let jsonData = pm.response.json();\r",
+									"\r",
+									"// Status code validation\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Validate top-level fields\r",
+									"pm.test(\"Validate authentication response fields\", () => {\r",
+									"    pm.expect(jsonData.tokenType).to.be.a(\"string\");\r",
+									"    pm.expect(jsonData.accessToken).to.be.a(\"string\");\r",
+									"    pm.expect(jsonData.expiresIn).to.be.a(\"number\");\r",
+									"    pm.expect(jsonData.refreshToken).to.be.a(\"string\");\r",
+									"});\r",
+									"\r",
+									"// Value-specific checks\r",
+									"pm.test(\"Validate token type is Bearer\", () => {\r",
+									"    pm.expect(jsonData.tokenType).to.eql(\"Bearer\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate expiresIn has a positive value\", () => {\r",
+									"    pm.expect(jsonData.expiresIn).to.be.above(0);\r",
+									"});\r",
+									"\r",
+									"// Security checks\r",
+									"pm.test(\"Access token and refresh token are not empty\", () => {\r",
+									"    pm.expect(jsonData.accessToken.length).to.be.above(20); \r",
+									"    pm.expect(jsonData.refreshToken.length).to.be.above(20);\r",
+									"}); // Fixed missing closing bracket\r",
+									"\r",
+									"//Consistency checks\r",
+									"pm.test(\"Access token and refresh token must differ\", () => {\r",
+									"    pm.expect(jsonData.accessToken).to.not.eql(jsonData.refreshToken);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "80d0194a-1923-47bd-b6cc-ffa523c319e0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"password\": \"Pa$$word123\",\n  \"username\": \"webmasters2030@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/authentication/authorize"
+					},
+					"response": [
+						{
+							"id": "083e1c1e-8c24-4133-933f-a64050876cc3",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"password\": \"string\",\n  \"username\": \"string\",\n  \"passcode\": \"string\",\n  \"usertype\": \"string\",\n  \"devicetype\": \"string\",\n  \"ipaddress\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/authentication/authorize"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Invalid Authorize Username",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "25a4daa0-a462-4be3-a302-5212c6db7fdf",
+								"exec": [
+									"let responseBody = pm.response.text();\r",
+									"\r",
+									"// Status code validation\r",
+									"pm.test(\"Status code is 401 or 400 for invalid credentials\", () => {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([400, 401]);\r",
+									"});\r",
+									"\r",
+									"//  Response body should be empty\r",
+									"pm.test(\"Response body is empty for invalid login\", () => {\r",
+									"    pm.expect(responseBody).to.eql(\"\");\r",
+									"});\r",
+									"\r",
+									"//  Content-Type check (optional, depending on API)\r",
+									"pm.test(\"Content-Type header should be present\", () => {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "da0c28d6-caba-473c-9b53-8b295a648b38",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"password\": \"Pa$$word123\",\n  \"username\": \"bmasters2030@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/authentication/authorize"
+					},
+					"response": [
+						{
+							"id": "2d7f2f80-bb60-41be-9cab-4669472a0260",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"password\": \"string\",\n  \"username\": \"string\",\n  \"passcode\": \"string\",\n  \"usertype\": \"string\",\n  \"devicetype\": \"string\",\n  \"ipaddress\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/authentication/authorize"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Invalid Authorize password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "25a4daa0-a462-4be3-a302-5212c6db7fdf",
+								"exec": [
+									"let responseBody = pm.response.text();\r",
+									"\r",
+									"// Status code validation\r",
+									"pm.test(\"Status code is 401 or 400 for invalid credentials\", () => {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([400, 401]);\r",
+									"});\r",
+									"\r",
+									"//  Response body should be empty\r",
+									"pm.test(\"Response body is empty for invalid login\", () => {\r",
+									"    pm.expect(responseBody).to.eql(\"\");\r",
+									"});\r",
+									"\r",
+									"//  Content-Type check (optional, depending on API)\r",
+									"pm.test(\"Content-Type header should be present\", () => {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "385321d4-237c-4552-a402-f434ec4ad2f4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"password\": \"Pa$$word\",\n  \"username\": \"webmasters2030@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/authentication/authorize"
+					},
+					"response": [
+						{
+							"id": "f1e05887-cbdc-4770-b458-ba9afc5dc8f2",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"password\": \"string\",\n  \"username\": \"string\",\n  \"passcode\": \"string\",\n  \"usertype\": \"string\",\n  \"devicetype\": \"string\",\n  \"ipaddress\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/authentication/authorize"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
+				}
+			],
+			"id": "fbf33248-502b-4dd2-8861-3ebacd79cfcc"
+		},
+		{
+			"name": "Verify User Email",
+			"item": [
+				{
+					"name": "{data}",
+					"item": [
+						{
+							"name": "verifyallusers",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "cdea7846-474f-41c2-9505-c15338740496",
+										"exec": [
+											"let jsonData = pm.response.json();",
+											"",
+											"// tatus code check",
+											"pm.test(\"Status code is 200\", () => {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"// Top-level response validations",
+											"pm.test(\"Validate top-level fields\", () => {",
+											"    pm.expect(jsonData.cc).to.be.a(\"number\");",
+											"    pm.expect(jsonData.responsecode).to.be.a(\"number\");",
+											"    pm.expect(jsonData.responsemessage).to.be.a(\"string\");",
+											"    pm.expect(jsonData.responsStatus).to.be.a(\"boolean\");",
+											"    pm.expect(jsonData.totalpage).to.be.a(\"number\");",
+											"    pm.expect(jsonData.currentpage).to.be.a(\"number\");",
+											"});",
+											"",
+											"// Data object validations",
+											"pm.test(\"Validate data types in user object\", () => {",
+											"    pm.expect(jsonData.data.id).to.be.a(\"number\");",
+											"    pm.expect(jsonData.data.username).to.be.a(\"string\");",
+											"    pm.expect(jsonData.data.password).to.be.a(\"string\"); ",
+											"    pm.expect(jsonData.data.passcode).to.be.a(\"string\"); ",
+											"    pm.expect(jsonData.data.vendorid).to.be.a(\"string\");",
+											"    pm.expect(jsonData.data.firstname).to.be.a(\"string\");",
+											"    pm.expect(jsonData.data.middlename).to.be.a(\"string\");",
+											"    pm.expect(jsonData.data.lastname).to.be.a(\"string\");",
+											"    pm.expect(jsonData.data.disco).to.be.a(\"string\");",
+											"    pm.expect(jsonData.data.installer_number).to.be.a(\"string\");",
+											"    pm.expect(jsonData.data.onboard).to.be.a(\"boolean\");",
+											"    pm.expect(jsonData.data.endate).to.be.a(\"string\"); ",
+											"    pm.expect(jsonData.data.lastlogin).to.be.a(\"string\"); ",
+											"    pm.expect(jsonData.data.retry).to.be.a(\"number\");",
+											"    pm.expect(jsonData.data.codevalid).to.be.a(\"string\"); ",
+											"});",
+											"",
+											"// Additional security checks",
+											"pm.test(\"Password and passcode should not be exposed\", () => {",
+											"    pm.expect(jsonData.data.password).to.eql(\"\");",
+											"    pm.expect(jsonData.data.passcode).to.eql(\"\");",
+											"});",
+											"",
+											"// Email consistency check",
+											"pm.test(\"Username matches request email\", () => {",
+											"    let requestEmail = \"webmasters2030@gmail.com\"; ",
+											"    pm.expect(jsonData.data.username).to.eql(requestEmail);",
+											"});",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "e85841e6-92b8-413f-b1ae-7d134091a80f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Profiles/verifyalluser/:data",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Profiles",
+										"verifyalluser",
+										":data"
+									],
+									"variable": [
+										{
+											"key": "data",
+											"value": "webmasters2030@gmail.com",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "4337e659-1ab9-42d1-bc00-82ba926a1fcd",
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Profiles/verifyalluser/:data",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Profiles",
+												"verifyalluser",
+												":data"
+											],
+											"variable": [
+												{
+													"key": "data"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"cc\": 2222,\n  \"responsecode\": 2883,\n  \"data\": {\n    \"nullable\": true\n  },\n  \"responsemessage\": \"string\",\n  \"patterns\": \"string\",\n  \"responsStatus\": false,\n  \"totalpage\": 1761,\n  \"currentpage\": 2297\n}"
+								}
+							]
+						}
+					],
+					"id": "45003007-5b84-4674-ab44-5284f938c471"
+				}
+			],
+			"id": "cdc97b2b-5607-4de1-894b-6456862c00ca"
+		},
+		{
+			"name": "Installer Meter Pickup",
+			"item": [
+				{
+					"name": "installerpick",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d96fac9e-15cd-4431-ae24-66244fc74544",
+								"exec": [
+									"// Parse response\r",
+									"let response = pm.response.json();\r",
+									"\r",
+									"// Status code check\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Response structure checks\r",
+									"pm.test(\"Response has all expected keys\", function () {\r",
+									"    pm.expect(response).to.have.keys([\r",
+									"        \"cc\",\r",
+									"        \"responsecode\",\r",
+									"        \"data\",\r",
+									"        \"responsemessage\",\r",
+									"        \"patterns\",\r",
+									"        \"responsStatus\",\r",
+									"        \"totalpage\",\r",
+									"        \"currentpage\"\r",
+									"    ]);\r",
+									"});\r",
+									"\r",
+									"// Field value checks\r",
+									"pm.test(\"cc is 0\", function () {\r",
+									"    pm.expect(response.cc).to.eql(0);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"responsecode is 200\", function () {\r",
+									"    pm.expect(response.responsecode).to.eql(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"data is null\", function () {\r",
+									"    pm.expect(response.data).to.be.null;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"responsemessage contains meter number\", function () {\r",
+									"    pm.expect(response.responsemessage).to.include(\"7300561688\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"responsStatus is true\", function () {\r",
+									"    pm.expect(response.responsStatus).to.be.true;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"totalpage and currentpage are 0\", function () {\r",
+									"    pm.expect(response.totalpage).to.eql(0);\r",
+									"    pm.expect(response.currentpage).to.eql(0);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "38d39db2-83c1-4009-bec0-16d7cc5cbc08",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"installer_number\": \"buja Electricity Distribution Company2772025827\",\n  \"disco\": \"Abuja Electricity Distribution Company\",\n  \"meternumber\": \"7300561688\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/customers/installerpick"
+					},
+					"response": [
+						{
+							"id": "248893b9-1a99-4169-9ee7-6fd845fc57d3",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"installer_number\": \"string\",\n  \"disco\": \"s\",\n  \"meternumber\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/customers/installerpick"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"cc\": 2222,\n  \"responsecode\": 2883,\n  \"data\": {\n    \"nullable\": true\n  },\n  \"responsemessage\": \"string\",\n  \"patterns\": \"string\",\n  \"responsStatus\": false,\n  \"totalpage\": 1761,\n  \"currentpage\": 2297\n}"
+						}
+					]
+				},
+				{
+					"name": "installerpick-Duplicate pick",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d96fac9e-15cd-4431-ae24-66244fc74544",
+								"exec": [
+									"let response = pm.response.json();\r",
+									"\r",
+									"// Status code check\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Response structure validation\r",
+									"pm.test(\"Response has all expected keys\", function () {\r",
+									"    pm.expect(response).to.have.keys([\r",
+									"        \"cc\",\r",
+									"        \"responsecode\",\r",
+									"        \"data\",\r",
+									"        \"responsemessage\",\r",
+									"        \"patterns\",\r",
+									"        \"responsStatus\",\r",
+									"        \"totalpage\",\r",
+									"        \"currentpage\"\r",
+									"    ]);\r",
+									"});\r",
+									"\r",
+									"// Duplicate pick validation (this should FAIL with current behavior)\r",
+									"pm.test(\"Duplicate pick should not be allowed\", function () {\r",
+									"    pm.expect(response.responsStatus, \"Expected responsStatus to be false for duplicate picks\").to.be.false;\r",
+									"});\r",
+									"\r",
+									"// Response message should indicate duplicate or already picked\r",
+									"pm.test(\"Response message should indicate meter already picked\", function () {\r",
+									"    pm.expect(response.responsemessage.toLowerCase()).to.include.oneOf([\r",
+									"        \"already picked\",\r",
+									"        \"duplicate\",\r",
+									"        \"cannot be picked again\"\r",
+									"    ]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "e4a3b81e-bce2-4346-84bd-076a4f31b41a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"installer_number\": \"buja Electricity Distribution Company2772025827\",\n  \"disco\": \"Abuja Electricity Distribution Company\",\n  \"meternumber\": \"7300561688\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/customers/installerpick"
+					},
+					"response": [
+						{
+							"id": "7facb648-b31c-46b7-8488-9c3d8f80b575",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"installer_number\": \"string\",\n  \"disco\": \"s\",\n  \"meternumber\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/customers/installerpick"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"cc\": 2222,\n  \"responsecode\": 2883,\n  \"data\": {\n    \"nullable\": true\n  },\n  \"responsemessage\": \"string\",\n  \"patterns\": \"string\",\n  \"responsStatus\": false,\n  \"totalpage\": 1761,\n  \"currentpage\": 2297\n}"
+						}
+					]
+				},
+				{
+					"name": "installerpick-Required Fields",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d96fac9e-15cd-4431-ae24-66244fc74544",
+								"exec": [
+									"let response = pm.response.json();\r",
+									"\r",
+									"// Status code check\r",
+									"pm.test(\"Status code is not 200 (should reject empty fields)\", function () {\r",
+									"    pm.expect(pm.response.code).to.not.eql(200);\r",
+									"});\r",
+									"\r",
+									"// Response should contain an error message\r",
+									"pm.test(\"Response message indicates required fields\", function () {\r",
+									"    pm.expect(response.responsemessage.toLowerCase()).to.include.oneOf([\r",
+									"        \"required\",\r",
+									"        \"missing\",\r",
+									"        \"cannot be empty\"\r",
+									"    ]);\r",
+									"});\r",
+									"\r",
+									"// responsStatus should be false\r",
+									"pm.test(\"responsStatus is false for empty fields\", function () {\r",
+									"    pm.expect(response.responsStatus).to.be.false;\r",
+									"});\r",
+									"\r",
+									"// Data should be null\r",
+									"pm.test(\"Data is null\", function () {\r",
+									"    pm.expect(response.data).to.be.null;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "4ca6e518-7675-434b-a679-b524aeb3ca45",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"installer_number\": \"\",\n  \"disco\": \"\",\n  \"meternumber\": \"\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/customers/installerpick"
+					},
+					"response": [
+						{
+							"id": "368dadb4-d153-4858-a1c2-3495a44160a0",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"installer_number\": \"string\",\n  \"disco\": \"s\",\n  \"meternumber\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/customers/installerpick"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"cc\": 2222,\n  \"responsecode\": 2883,\n  \"data\": {\n    \"nullable\": true\n  },\n  \"responsemessage\": \"string\",\n  \"patterns\": \"string\",\n  \"responsStatus\": false,\n  \"totalpage\": 1761,\n  \"currentpage\": 2297\n}"
+						}
+					]
+				},
+				{
+					"name": "installerpick-Invalid Meter number",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4bc49c3a-a6a2-4b97-ad7b-9704b9d539d0",
+								"exec": [
+									"let response = pm.response.json();\r",
+									"\r",
+									"// Status code check\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Response structure checks\r",
+									"pm.test(\"Response has all expected keys\", function () {\r",
+									"    pm.expect(response).to.have.keys([\r",
+									"        \"cc\",\r",
+									"        \"responsecode\",\r",
+									"        \"data\",\r",
+									"        \"responsemessage\",\r",
+									"        \"patterns\",\r",
+									"        \"responsStatus\",\r",
+									"        \"totalpage\",\r",
+									"        \"currentpage\"\r",
+									"    ]);\r",
+									"});\r",
+									"\r",
+									"// Field value checks\r",
+									"pm.test(\"cc is 0\", function () {\r",
+									"    pm.expect(response.cc).to.eql(0);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"responsecode is 200\", function () {\r",
+									"    pm.expect(response.responsecode).to.eql(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"data is null\", function () {\r",
+									"    pm.expect(response.data).to.be.null;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"responsemessage contains 'was not assigned'\", function () {\r",
+									"    pm.expect(response.responsemessage).to.include(\"was not assigned\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"responsStatus is false\", function () {\r",
+									"    pm.expect(response.responsStatus).to.be.false;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"totalpage and currentpage are 0\", function () {\r",
+									"    pm.expect(response.totalpage).to.eql(0);\r",
+									"    pm.expect(response.currentpage).to.eql(0);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "58a8481e-b386-4479-9422-7cd9df9e98ea",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"installer_number\": \"buja Electricity Distribution Company2772025827\",\n  \"disco\": \"Abuja Electricity Distribution Company\",\n  \"meternumber\": \"7300561688\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/customers/installerpick"
+					},
+					"response": [
+						{
+							"id": "d08e8650-dd1a-4aa9-be5c-6ff2b834cf6e",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"installer_number\": \"string\",\n  \"disco\": \"s\",\n  \"meternumber\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/customers/installerpick"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"cc\": 2222,\n  \"responsecode\": 2883,\n  \"data\": {\n    \"nullable\": true\n  },\n  \"responsemessage\": \"string\",\n  \"patterns\": \"string\",\n  \"responsStatus\": false,\n  \"totalpage\": 1761,\n  \"currentpage\": 2297\n}"
+						}
+					]
+				}
+			],
+			"id": "a4476642-1235-477a-93b7-65dc1ff276db"
+		},
+		{
+			"name": "Installer quick view",
+			"item": [
+				{
+					"name": "{data}",
+					"item": [
+						{
+							"name": "installermetrix",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "397577c4-4a80-43cc-8eb0-a80b42f3443f",
+										"exec": [
+											"let response = pm.response.json();\r",
+											"\r",
+											"// Status code check\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"// Response structure validation\r",
+											"pm.test(\"Response has all expected keys\", function () {\r",
+											"    pm.expect(response).to.have.keys([\r",
+											"        \"cc\",\r",
+											"        \"responsecode\",\r",
+											"        \"data\",\r",
+											"        \"responsemessage\",\r",
+											"        \"patterns\",\r",
+											"        \"responsStatus\",\r",
+											"        \"totalpage\",\r",
+											"        \"currentpage\"\r",
+											"    ]);\r",
+											"});\r",
+											"\r",
+											"// cc should be 0\r",
+											"pm.test(\"cc is 0\", function () {\r",
+											"    pm.expect(response.cc).to.eql(0);\r",
+											"});\r",
+											"\r",
+											"// responsecode should be 200\r",
+											"pm.test(\"responsecode is 200\", function () {\r",
+											"    pm.expect(response.responsecode).to.eql(200);\r",
+											"});\r",
+											"\r",
+											"// responsStatus should be true\r",
+											"pm.test(\"responsStatus is true\", function () {\r",
+											"    pm.expect(response.responsStatus).to.be.true;\r",
+											"});\r",
+											"\r",
+											"// data should not be null and should have expected keys\r",
+											"pm.test(\"Data object has all required metrics\", function () {\r",
+											"    pm.expect(response.data).to.have.keys([\r",
+											"        \"assigned\",\r",
+											"        \"completed\",\r",
+											"        \"completedsingle\",\r",
+											"        \"completedthree\",\r",
+											"        \"pending\",\r",
+											"        \"pendingsingle\",\r",
+											"        \"pendingthree\"\r",
+											"    ]);\r",
+											"});\r",
+											"\r",
+											"// Data field type checks\r",
+											"pm.test(\"All metrics are numbers\", function () {\r",
+											"    Object.values(response.data).forEach(val => {\r",
+											"        pm.expect(val).to.be.a(\"number\");\r",
+											"    });\r",
+											"});\r",
+											"\r",
+											"// Logical consistency checks (if applicable)\r",
+											"pm.test(\"Completed equals completedsingle + completedthree\", function () {\r",
+											"    pm.expect(response.data.completed).to.eql(\r",
+											"        response.data.completedsingle + response.data.completedthree\r",
+											"    );\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Pending equals pendingsingle + pendingthree\", function () {\r",
+											"    pm.expect(response.data.pending).to.eql(\r",
+											"        response.data.pendingsingle + response.data.pendingthree\r",
+											"    );\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "5d1fc8ab-d0fc-4f5e-abb1-a509aed024f8",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/customers/installermetrix/:data",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"customers",
+										"installermetrix",
+										":data"
+									],
+									"variable": [
+										{
+											"key": "data",
+											"value": "buja Electricity Distribution Company2772025827",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "cc8ac720-3de6-4736-84bf-fea02b1e1316",
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/customers/installermetrix/:data",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"customers",
+												"installermetrix",
+												":data"
+											],
+											"variable": [
+												{
+													"key": "data"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"cc\": 3674,\n  \"responsecode\": 3992,\n  \"data\": {\n    \"assigned\": 5265,\n    \"completed\": 4139,\n    \"completedsingle\": 9238,\n    \"completedthree\": 7755,\n    \"pending\": 7878,\n    \"pendingsingle\": 8195,\n    \"pendingthree\": 6541\n  },\n  \"responsemessage\": \"string\",\n  \"patterns\": \"string\",\n  \"responsStatus\": true,\n  \"totalpage\": 3913,\n  \"currentpage\": 7473\n}"
+								}
+							]
+						},
+						{
+							"name": "installermetrix-Invalid data",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "397577c4-4a80-43cc-8eb0-a80b42f3443f",
+										"exec": [
+											"let response = pm.response.json();\r",
+											"\r",
+											"// Check status code\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"// Ensure response structure exists\r",
+											"pm.test(\"Response contains all expected keys\", function () {\r",
+											"    pm.expect(response).to.have.keys([\r",
+											"        \"cc\",\r",
+											"        \"responsecode\",\r",
+											"        \"data\",\r",
+											"        \"responsemessage\",\r",
+											"        \"patterns\",\r",
+											"        \"responsStatus\",\r",
+											"        \"totalpage\",\r",
+											"        \"currentpage\"\r",
+											"    ]);\r",
+											"});\r",
+											"\r",
+											"// cc and responsecode checks\r",
+											"pm.test(\"cc is 0 and responsecode is 200\", function () {\r",
+											"    pm.expect(response.cc).to.eql(0);\r",
+											"    pm.expect(response.responsecode).to.eql(200);\r",
+											"});\r",
+											"\r",
+											"// API should NOT return responsStatus true for invalid installer number\r",
+											"pm.test(\"responsStatus should be false for invalid installer number\", function () {\r",
+											"    pm.expect(response.responsStatus).to.eql(false, \"Expected responsStatus to be false\");\r",
+											"});\r",
+											"\r",
+											"// API should provide descriptive responsemessage for invalid installer number\r",
+											"pm.test(\"responsemessage should not be empty for invalid installer number\", function () {\r",
+											"    pm.expect(response.responsemessage).to.not.be.empty;\r",
+											"});\r",
+											"\r",
+											"// Data should not default silently to zero for invalid installer number\r",
+											"pm.test(\"Data should not default to zeros for invalid installer number\", function () {\r",
+											"    let allZero = Object.values(response.data).every(val => val === 0);\r",
+											"    pm.expect(allZero).to.eql(false, \"Data should not return all zero values for invalid installer number\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "535f5fb0-dc8f-494e-8ec2-a255eaebfe4f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/customers/installermetrix/:data",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"customers",
+										"installermetrix",
+										":data"
+									],
+									"variable": [
+										{
+											"key": "data",
+											"value": " Electricity Distribution Company2772025827",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "1e46db01-6af4-4dae-998e-99819b5a0777",
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/customers/installermetrix/:data",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"customers",
+												"installermetrix",
+												":data"
+											],
+											"variable": [
+												{
+													"key": "data"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"cc\": 3674,\n  \"responsecode\": 3992,\n  \"data\": {\n    \"assigned\": 5265,\n    \"completed\": 4139,\n    \"completedsingle\": 9238,\n    \"completedthree\": 7755,\n    \"pending\": 7878,\n    \"pendingsingle\": 8195,\n    \"pendingthree\": 6541\n  },\n  \"responsemessage\": \"string\",\n  \"patterns\": \"string\",\n  \"responsStatus\": true,\n  \"totalpage\": 3913,\n  \"currentpage\": 7473\n}"
+								}
+							]
+						},
+						{
+							"name": "installermetrix-Empty data",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "397577c4-4a80-43cc-8eb0-a80b42f3443f",
+										"exec": [
+											"let response = pm.response.json();\r",
+											"\r",
+											"// Check HTTP status\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"// Verify response structure\r",
+											"pm.test(\"Response contains expected keys\", function () {\r",
+											"    pm.expect(response).to.have.keys([\r",
+											"        \"cc\",\r",
+											"        \"responsecode\",\r",
+											"        \"data\",\r",
+											"        \"responsemessage\",\r",
+											"        \"patterns\",\r",
+											"        \"responsStatus\",\r",
+											"        \"totalpage\",\r",
+											"        \"currentpage\"\r",
+											"    ]);\r",
+											"});\r",
+											"\r",
+											"// cc and responsecode validation\r",
+											"pm.test(\"cc is 0 and responsecode is 200\", function () {\r",
+											"    pm.expect(response.cc).to.eql(0);\r",
+											"    pm.expect(response.responsecode).to.eql(200);\r",
+											"});\r",
+											"\r",
+											"// For empty request, responsStatus should not be true\r",
+											"pm.test(\"responsStatus should be false for empty request\", function () {\r",
+											"    pm.expect(response.responsStatus).to.eql(false, \"Expected responsStatus to be false for empty request\");\r",
+											"});\r",
+											"\r",
+											"// responsemessage should not be empty\r",
+											"pm.test(\"responsemessage should provide error for empty request\", function () {\r",
+											"    pm.expect(response.responsemessage).to.not.be.empty;\r",
+											"});\r",
+											"\r",
+											"// Data should not default silently to zero values\r",
+											"pm.test(\"Data should not default to all zeros for empty request\", function () {\r",
+											"    let allZero = Object.values(response.data).every(val => val === 0);\r",
+											"    pm.expect(allZero).to.eql(false, \"Data should not return all zero values for empty request\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "41ca37ce-f5d2-42dc-ae7d-2718e65bc51e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/customers/installermetrix/:data",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"customers",
+										"installermetrix",
+										":data"
+									],
+									"variable": [
+										{
+											"key": "data",
+											"value": "",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "409a5550-4c99-4dfc-a237-ee10cd25cb90",
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/customers/installermetrix/:data",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"customers",
+												"installermetrix",
+												":data"
+											],
+											"variable": [
+												{
+													"key": "data"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"cc\": 3674,\n  \"responsecode\": 3992,\n  \"data\": {\n    \"assigned\": 5265,\n    \"completed\": 4139,\n    \"completedsingle\": 9238,\n    \"completedthree\": 7755,\n    \"pending\": 7878,\n    \"pendingsingle\": 8195,\n    \"pendingthree\": 6541\n  },\n  \"responsemessage\": \"string\",\n  \"patterns\": \"string\",\n  \"responsStatus\": true,\n  \"totalpage\": 3913,\n  \"currentpage\": 7473\n}"
+								}
+							]
+						}
+					],
+					"id": "de3c34d2-73e1-49f6-849c-2dd4dacdffc2",
+					"description": "installer id"
+				}
+			],
+			"id": "45ba7b1a-4e43-4b7c-bb9a-5ab1a41519d6"
+		},
+		{
+			"name": "Submit Meter photo",
+			"item": [
+				{
+					"name": "postphoto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7707516e-3bc8-4e1e-8a80-3175b023e00c",
+								"exec": [
+									"let response = pm.response.json();\r",
+									"\r",
+									"// Status code check\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Validate top-level response structure\r",
+									"pm.test(\"Response has all expected keys\", function () {\r",
+									"    pm.expect(response).to.have.keys([\r",
+									"        \"cc\",\r",
+									"        \"responsecode\",\r",
+									"        \"data\",\r",
+									"        \"responsemessage\",\r",
+									"        \"patterns\",\r",
+									"        \"responsStatus\",\r",
+									"        \"totalpage\",\r",
+									"        \"currentpage\"\r",
+									"    ]);\r",
+									"});\r",
+									"\r",
+									"// Validate cc and responsecode\r",
+									"pm.test(\"cc is 0 and responsecode is 200\", function () {\r",
+									"    pm.expect(response.cc).to.eql(0);\r",
+									"    pm.expect(response.responsecode).to.eql(200);\r",
+									"});\r",
+									"\r",
+									"// responsStatus should be true when photo is saved\r",
+									"pm.test(\"responsStatus is true\", function () {\r",
+									"    pm.expect(response.responsStatus).to.be.true;\r",
+									"});\r",
+									"\r",
+									"// responsemessage should indicate success\r",
+									"pm.test(\"Response message is 'Saved'\", function () {\r",
+									"    pm.expect(response.responsemessage).to.eql(\"Saved\");\r",
+									"});\r",
+									"\r",
+									"// Data field should be null on success\r",
+									"pm.test(\"Data field is null\", function () {\r",
+									"    pm.expect(response.data).to.be.null;\r",
+									"});\r",
+									"\r",
+									"// Example: Ensure required fields exist before sending\r",
+									"pm.test(\"Request body contains required fields\", function () {\r",
+									"    let request = {\r",
+									"        customerid: \"20094803211\",\r",
+									"        docfile: \"BASE64\",\r",
+									"        docname: \"ANY NAME\",\r",
+									"        doctype: \"JPG\",\r",
+									"        meternumber: \"7300561688\",\r",
+									"        submitted_by: \"buja Electricity Distribution Company2772025827\",\r",
+									"        filename: \"BEFORE\",\r",
+									"        endate: \"1970-06-27T21:59:57.866Z\"\r",
+									"    };\r",
+									"    pm.expect(request).to.have.keys([\r",
+									"        \"customerid\",\r",
+									"        \"docfile\",\r",
+									"        \"docname\",\r",
+									"        \"doctype\",\r",
+									"        \"meternumber\",\r",
+									"        \"submitted_by\",\r",
+									"        \"filename\",\r",
+									"        \"endate\"\r",
+									"    ]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "561fbdfc-f2d8-4ee3-adae-aabcfe70d5fd",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"customerid\": \"20094803211\",\n  \"docfile\": \"BASE64\",\n  \"docname\": \"ANY NAME\",\n  \"doctype\": \"JPG\",\n  \"meternumber\": \"7300561688\",\n  \"submitted_by\": \"buja Electricity Distribution Company2772025827\",\n  \"filename\": \"BEFORE\",\n  \"endate\": \"1970-06-27T21:59:57.866Z\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/operations/postphoto"
+					},
+					"response": [
+						{
+							"id": "0347f1f0-44cf-43e9-ac41-4a17f33d2b8a",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"customerid\": \"string\",\n  \"docfile\": \"string\",\n  \"docname\": \"string\",\n  \"doctype\": \"string\",\n  \"meternumber\": \"string\",\n  \"submitted_by\": \"string\",\n  \"id\": 9004,\n  \"filename\": \"string\",\n  \"endate\": \"1970-06-27T21:59:57.866Z\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/operations/postphoto"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"cc\": 2222,\n  \"responsecode\": 2883,\n  \"data\": {\n    \"nullable\": true\n  },\n  \"responsemessage\": \"string\",\n  \"patterns\": \"string\",\n  \"responsStatus\": false,\n  \"totalpage\": 1761,\n  \"currentpage\": 2297\n}"
+						}
+					]
+				}
+			],
+			"id": "3006eb7e-6cfb-4e86-ad7e-f6658a5b5811"
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "{{minst-token}}"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "2482dd16-bd48-4c54-8f5b-dcfb037841d5",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "8ed21f0a-aa9a-4372-b454-f4f81af86eef",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "minst-token",
+			"value": ""
+		}
+	]
+}
