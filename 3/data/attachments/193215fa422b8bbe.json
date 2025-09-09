@@ -1,0 +1,11 @@
+{
+    "Content-Type": "application/json",
+    "Accept": "text/plain",
+    "User-Agent": "PostmanRuntime/7.39.1",
+    "Cache-Control": "no-cache",
+    "Postman-Token": "7610923d-f186-47fc-9d23-7eeceb6edca3",
+    "Host": "appmodule.delightfulgrass-0dcdf3e6.brazilsouth.azurecontainerapps.io",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Connection": "keep-alive",
+    "Content-Length": "157"
+}
