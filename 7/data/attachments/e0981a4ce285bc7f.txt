@@ -1,0 +1,10 @@
+[
+  {
+    "meternumber": "string",
+    "vendorid": "st"
+  },
+  {
+    "meternumber": "string",
+    "vendorid": "string"
+  }
+]
