@@ -2104,7 +2104,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "0aafa3d5-4634-4513-8d66-55f7bd98b24d",
+				"id": "b52d0d3a-a474-4b5a-83c1-fca7badc19cc",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -2115,7 +2115,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "3a78ae93-9153-4930-b7ea-59832d1eb036",
+				"id": "e13059b1-1873-455c-9783-ea23df1c8eae",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -2128,6 +2128,11 @@
 		{
 			"key": "nemsa-accessToken",
 			"value": ""
+		},
+		{
+			"key": "baseUrl",
+			"value": "",
+			"type": "string"
 		}
 	]
 }
