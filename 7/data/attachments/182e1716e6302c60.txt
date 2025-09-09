@@ -1,4 +1,0 @@
-{
-  "batch": "string",
-  "vendor": "string"
-}

@@ -1,5 +1,0 @@
-{
-  "comment": "string",
-  "commentby": "mitams@yopmail.com",
-  "contract_id": "{{contract_id}}"
-}

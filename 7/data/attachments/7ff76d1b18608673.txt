@@ -1,8 +1,0 @@
-{
-    "id": 0,
-    "username": "fojes@mailinator.com",
-    "firstName": "Akeem",
-    "lastName": "Coffey",
-    "role": "Admin",
-    "vendor_id": "Mita"
-}

@@ -1,1 +1,0 @@
-{"cc":0,"responsecode":200,"data":null,"responsemessage":"Account exist","patterns":"","responsStatus":true,"totalpage":0,"currentpage":0}

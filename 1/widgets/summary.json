@@ -1,1 +1,1 @@
-{"reportName":"PreMIES - API Quality Readiness with history","testRuns":[],"statistic":{"failed":0,"broken":80,"skipped":0,"passed":0,"unknown":0,"total":80},"time":{"start":1757416600976,"stop":1757416602223,"duration":1247,"minDuration":7,"maxDuration":53,"sumDuration":1033}}
+{"reportName":"Allure Report with history","testRuns":[],"statistic":{"failed":3,"broken":0,"skipped":0,"passed":74,"unknown":0,"total":77},"time":{"start":1757428837712,"stop":1757428857188,"duration":19476,"minDuration":169,"maxDuration":2560,"sumDuration":19265}}
